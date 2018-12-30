@@ -4,7 +4,7 @@
 
 PasswordValidator::PasswordValidator()
 {
-    database = std::make_unique<MySQLDatabase>(MySQLDatabase("127.0.0.1", "root", "", "gadugadu", 3307));
+    database = std::make_unique<MySQLDatabase>(MySQLDatabase("127.0.0.1", "root", "Fabregas96", "gadugadu", 3307));
 }
 
 bool PasswordValidator::SignIn() noexcept
@@ -64,8 +64,6 @@ void PasswordValidator::confirmNewPassword(const std::string & newPassword, cons
 {
     if (newPassword == repeatedPassword)
     {
-        std::cout << "Nowe has³o: " << newPassword;
-        std::cout << "A login: " << login;
         database->setNewPassword(login, newPassword);
         password = newPassword;
         std::cout << "Password changed correctly\n";
